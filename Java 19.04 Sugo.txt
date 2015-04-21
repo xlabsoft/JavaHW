@@ -1,0 +1,85 @@
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+public class MainProg {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int dsLength = 1000000;
+		int[] numDataStorage = new int[dsLength];
+		String[] strDataStorage = new String[dsLength];
+		for (int i=0; i<dsLength; i++){
+			 numDataStorage[i] = i;
+			 strDataStorage[i] =  String.valueOf(i); 
+		}
+		System.out.println(numDataStorage[33]);
+		System.out.println(numDataStorage[333]);
+		System.out.println(numDataStorage[3333]);
+		shuffleArray(numDataStorage);
+		
+		for (int i=0; i<dsLength; i++){			 
+			 strDataStorage[i] =  String.valueOf(numDataStorage[i]); 
+		}
+		System.out.println(strDataStorage[33]);
+		System.out.println(strDataStorage[333]);
+		System.out.println(strDataStorage[3333]);
+		
+		//fill collection
+		
+		int half = 500000;
+		  
+		  List<Integer> arlist = new ArrayList<>();
+		  for (int i : numDataStorage) {
+			  arlist.add(i);
+		  }
+		  
+		  System.out.print("ArrayList ");
+		  search(arlist);
+		  
+		  List<Integer> linklist = new LinkedList<>();
+		  for (int i : numDataStorage) {
+			  linklist.add(i);
+		  }
+		  
+		  //Search(linklist);
+		  System.out.print("LinkedList ");
+		  search(linklist);
+	}
+
+	public static void search(List<Integer> array) {
+		int half = 500000;
+		int count = 100;
+		long srArifm = 0;
+		long srArifmN = 0;
+		for (int c=1; c > count; c++)
+		{
+			long start = System.currentTimeMillis();
+			long startN = System.nanoTime();
+			
+			for (int i = 0; i < array.size(); i++) {
+			    if (array.get(i) == half)
+			    	break;
+			  } 
+			
+			long end = System.currentTimeMillis();
+			long endN = System.nanoTime();
+			//long timeSeconds = TimeUnit.MILLISECONDS.toSeconds(end - start);
+			srArifm += (end - start); 
+			srArifmN += (endN - startN);
+		}
+		  System.out.println("Search Took: " + srArifm/count  + "ms "+ srArifmN/count  + "nano");
+		  
+	}
+	
+	public static void shuffleArray(int[] array) {
+		  List<Integer> list = new ArrayList<>();
+		  for (int i : array) {
+		    list.add(i);
+		  }
+
+		  Collections.shuffle(list);
+
+		  for (int i = 0; i < list.size(); i++) {
+		    array[i] = list.get(i);
+		  }    
+		}
+}
