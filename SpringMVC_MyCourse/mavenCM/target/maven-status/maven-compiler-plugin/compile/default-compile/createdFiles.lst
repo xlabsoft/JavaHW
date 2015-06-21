@@ -1,0 +1,9 @@
+com\xlabsoft\web\controller\GoodController.class
+com\xlabsoft\web\model\User.class
+com\xlabsoft\web\controller\UserController.class
+com\xlabsoft\web\model\Good.class
+com\xlabsoft\web\model\User$1.class
+com\xlabsoft\web\service\UserServiceImpl.class
+com\xlabsoft\web\service\GoodService.class
+com\xlabsoft\web\service\UserService.class
+com\xlabsoft\web\service\GoodServiceImpl.class
