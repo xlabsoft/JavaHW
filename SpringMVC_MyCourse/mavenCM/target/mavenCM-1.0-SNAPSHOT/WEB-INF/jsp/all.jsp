@@ -13,8 +13,49 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <c:forEach items="${goods}" var="good">
-            <div>${good.name} = ${good.price}</div>
-        </c:forEach>
+        <!--c:forEach items="${goods}" var="good"-->
+            <!--div>${good.name} = ${good.price}</div-->
+        <!--/c:forEach-->
+        <div class="container">
+            <div class="jumbotron">
+                <h1>${current.name}'s Contacts</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+                        
+                        <div class="panel-body">
+                            <table border="1">
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>OffName</td>
+                                        <td>Company</td>
+                                    </tr>
+                                    <c:forEach items="${contacts}" var="contact">
+                                        <tr>
+                                            <td>${contact.name}</td>
+                                            <td>${contact.oname}</td>
+                                            <td> ${contact.company}</td>
+                                        </tr>
+                                    </c:forEach>
+
+                                </tbody>
+                            </table>
+</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+
     </body>
 </html>

@@ -5,6 +5,7 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:security="http://www.springframework.org/schema/security"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
@@ -17,9 +18,12 @@
      <security:http access-denied-page="/error403.jsp">
             <security:intercept-url pattern="/*" access="ROLE_USER" />
             <security:intercept-url pattern="/user/login" access="ROLE_USER,ROLE_ANONYMOUS" />
+            <security:intercept-url pattern="/user/register" access="ROLE_USER,ROLE_ANONYMOUS" />
             <security:intercept-url pattern="/user/*" access="ROLE_USER" />
-            <security:intercept-url pattern="/goods*" access="ROLE_USER" />
-                 <security:intercept-url pattern="/goods/all" access="ROLE_USER" />
+            <!--security:intercept-url pattern="/goods*" access="ROLE_USER" /-->
+            <security:intercept-url pattern="/contacts*" access="ROLE_USER" />
+                 <security:intercept-url pattern="/contacts/all/*" access="ROLE_USER" />
+                 <!--security:intercept-url pattern="/goods/all" access="ROLE_USER" /-->
             <security:form-login login-page="/user/login" default-target-url="/user/show"
                     authentication-failure-url="/user/login?error=true" />
             <security:logout logout-url="/user/logout" logout-success-url="/goods" />
