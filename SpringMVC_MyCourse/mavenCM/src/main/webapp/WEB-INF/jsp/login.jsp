@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="body">
         <div class="container">
@@ -13,7 +15,7 @@
                             <div class="form-group">
                                 <label for="j_password">Password: </label><input class="form-control" type="password" name="j_password" />
                             </div>
-                            <input class="btn btn-success" type="submit" />
+                            <input class="btn btn-success" type="submit" value="Войти"/>
                         </form>
                     </div>
                 </div>

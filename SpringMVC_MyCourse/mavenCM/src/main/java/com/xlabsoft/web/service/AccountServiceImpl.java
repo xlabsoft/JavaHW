@@ -35,13 +35,13 @@ public class AccountServiceImpl implements AccountService, UserDetailsService {
     public List<Account> findAll() throws SQLException {
         return sf.getCurrentSession().createQuery("from Account").list();
     }
-    /*
+    
     @Override
     public int save(Account u) {
         return  (Integer) sf.getCurrentSession().save(u);
     }
-    */
     
+    /*
     @Override
     public int save(Account u) {
         //String query = "INSERT INTO accounts (RealName, eMail, Password, Level) values (?, ?, ?, ?)";
@@ -72,7 +72,7 @@ public class AccountServiceImpl implements AccountService, UserDetailsService {
             }
         }
     }
-    
+    */
     
     
     @Override
@@ -94,7 +94,7 @@ public class AccountServiceImpl implements AccountService, UserDetailsService {
                 return users.get(0);
             }
         } catch (Exception e) {
-            System.err.println("ohshit");
+            System.err.println("oh, shit");
         }
         return null;
     }

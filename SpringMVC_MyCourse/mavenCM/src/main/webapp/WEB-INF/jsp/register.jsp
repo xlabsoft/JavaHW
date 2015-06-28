@@ -4,28 +4,31 @@
     Author     : Shamen
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Register new user</h1>
-        <div>
-            <form method="GET" action="<c:url value="/user/userSave"/>
-            <input type="hidden" name="id" />
-            <label for="name">Name:</label>
-            <input type="text" name="name" />
-            <label for="email">Email:</label>
-            <input type="text" name="email" />
-            <label for="password">Password:</label>
-            <input type="text" name="password" />
-            <label for="isAdmin">Is admin:</label>
-            <input type="checkbox" name="isAdmin" value="1"/>
-            <input type="submit" />
-        </form>
+
+<tiles:insertDefinition name="defaultTemplate">
+    <tiles:putAttribute name="body">
+        <div class="container">
+            <div class="row">
+                <div class="text-center center-block" style="width: 300px">
+                    <div >
+                        <form action="<c:url value="/user/adduser" />" method="post" accept-charset="utf-8">
+                            <div class="form-group">
+                                <label for="name">Name: </label><input class="form-control" type="text" name="name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email: </label><input class="form-control" type="text" name="email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password: </label><input class="form-control" type="password" name="password" />
+                            </div>
+                            <input class="btn btn-success" type="submit" value="Зарегистрировать" />
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </body>
-</html>
+    </tiles:putAttribute>
+</tiles:insertDefinition>

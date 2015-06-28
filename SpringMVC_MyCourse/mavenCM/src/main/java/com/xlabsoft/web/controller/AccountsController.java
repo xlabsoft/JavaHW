@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import com.xlabsoft.web.service.AccountService;
 import com.xlabsoft.web.model.Account;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 @RequestMapping("/user")
@@ -62,5 +63,14 @@ public class AccountsController {
         accountService.save(u);
         
         return "redirect:/user/show";
+    }
+    
+    @RequestMapping(value = "/adduser", method = RequestMethod.POST)
+    public String newposition(
+            @ModelAttribute("accounts") Account user,
+            Model model) {
+        accountService.save(user);
+
+        return "redirect:/user/login";
     }
 }
