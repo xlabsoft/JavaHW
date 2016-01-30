@@ -1,2 +1,2 @@
 # JavaHW
-For Java HomeWjrk
+For Java HomeWork
